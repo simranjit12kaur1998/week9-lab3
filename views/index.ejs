@@ -1,0 +1,45 @@
+<!-- Define a function to render each contact -->
+<% function renderContact(contact) { %>
+    <div class="item-preview">
+      <a href="/single-contact/<%= contact._id %>">
+        <h2>First Name: <%= contact.firstName %></h2>
+        <h4>Last Name: <%= contact.lastName %></h4>
+        <h4>Email: <%= contact.email %></h4>
+        <h4>Phone: <%= contact.phone %></h4>
+        <h4>Address: <%= contact.address %></h4>
+      </a>
+    </div>
+  <% } %>
+  
+  
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Contacts</title>
+      <link rel="stylesheet" href="/css/styles.css" />
+      <!-- Link to external stylesheet -->
+    </head>
+    <body>
+      <nav class="navbar">
+        <h1>My Contacts</h1>
+        <div class="links">
+          <a href="/">Home</a
+          ><a class="new-item-link" href="/addcontact">New Contact</a>
+        </div>
+      </nav>
+  
+      <div class="content">
+        <div class="home">
+          <div class="item-list">
+            <% if (contacts.length > 0) { %>
+            <!-- Call the renderContact function for each contact -->
+            <% contacts.forEach(renderContact); %> <% } else { %>
+            <p>No contacts found.</p>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>
